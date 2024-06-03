@@ -1,6 +1,11 @@
 <header class="rosso">
   <div>AMAZON LOGO</div>
-  <a href="#">Contatti</a>
-  <a href="#">Chi siamo</a>
-  <a href="#">Assistenza</a>
+  <!-- direttiva strutturale *ngFor -->
+
+  <a target="_blank" *ngFor="let link of vociMenu" href="{{ link.url }}">{{
+    link.titolo
+  }}</a>
+
+  <!-- direttiva strutturale *ngIf -->
+  <div *ngIf="utenteLoggato">Benvenuto Matteo!</div>
 </header>

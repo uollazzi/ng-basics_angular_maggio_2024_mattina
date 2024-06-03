@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './gruppo-prodotti.component.css'
 })
 export class GruppoProdottiComponent {
-  titolo: string = "Oggi in sconto!!!";
+  titolo: string = "Oggi in sconto!!!"; // type inference
+
+  saluta() {
+    let n = 9;
+    let m: number;
+  }
 }
