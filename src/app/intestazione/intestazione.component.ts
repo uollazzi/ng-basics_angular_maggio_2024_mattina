@@ -10,21 +10,33 @@ export class IntestazioneComponent {
   vociMenu: VoceMenu[] = [
     {
       titolo: "Chi siamo",
-      url: "https://www.google.com"
+      url: "https://www.google.com",
+      attivata: true
     },
     {
       titolo: "Contatti",
-      url: "https://www.instagram.com"
+      url: "https://www.instagram.com",
+      attivata: true
     },
     {
       titolo: "Assistenza",
-      url: "https://www.ferrari.com"
+      url: "https://www.ferrari.com",
+      attivata: false
     },
     {
       titolo: "Lavora per noi",
-      url: "https://www.amazon.com"
+      url: "https://www.amazon.com",
+      attivata: false
     }
   ]
 
-  utenteLoggato = true;
+  utenteLoggato = false;
+
+  entra() {
+    this.utenteLoggato = true;
+  }
+
+  esci() {
+    this.utenteLoggato = false;
+  }
 }

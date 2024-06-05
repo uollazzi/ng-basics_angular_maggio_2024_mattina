@@ -1,11 +1,37 @@
 <header class="rosso">
   <div>AMAZON LOGO</div>
-  <!-- direttiva strutturale *ngFor -->
 
-  <a target="_blank" *ngFor="let link of vociMenu" href="{{ link.url }}">{{
-    link.titolo
-  }}</a>
+  <!-- direttiva strutturale *ngFor -->
+  <!-- Opzione 1 -->
+  <!-- <a
+    target="_blank"
+    *ngFor="let link of vociMenu"
+    href="{{ link.attivata ? link.url : '#' }}"
+  >
+    <span *ngIf="link.attivata">{{ link.titolo }}</span>
+    <span *ngIf="!link.attivata">NON DISPONIBILE</span>
+  </a> -->
+
+  <!-- Opzione 2: voglio mostrare la voce di menu ma senza titolo e non cliccabile -->
+  <!-- <div *ngFor="let link of vociMenu">
+    <a *ngIf="link.attivata" href="{{ link.url }}">{{ link.titolo }}</a>
+    <div *ngIf="!link.attivata">NON DISPONIBILE</div>
+  </div> -->
+
+  <!-- Opzione 3: NON voglio mostrare la voce di menu -->
+  <div *ngFor="let link of vociMenu">
+    <a *ngIf="link.attivata" [href]="link.url">
+      {{ link.titolo }}
+    </a>
+  </div>
 
   <!-- direttiva strutturale *ngIf -->
-  <div *ngIf="utenteLoggato">Benvenuto Matteo!</div>
+  <div *ngIf="utenteLoggato">
+    Benvenuto Gigi!
+    <button type="button" (click)="esci()">Esci</button>
+  </div>
+
+  <div *ngIf="!utenteLoggato">
+    <button type="button" (click)="entra()">Entra</button>
+  </div>
 </header>
